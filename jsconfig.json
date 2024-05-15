@@ -1,0 +1,50 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "dom",
+            "es2015",
+            "es2016",
+            "es6",
+            "es2017"
+        ],
+        "module": "commonjs",
+        "jsx": "react",
+        "baseUrl": ".",
+        "checkJs": true,
+        "allowImportingTsExtensions": true,
+
+        "paths": {
+            "assets/*": [
+                "./src/internal/assets/*"
+            ],
+            "data/*": [
+                "./src/internal/data/*"
+            ],
+            "service/*": [
+                "./src/internal/service/*"
+            ],
+            "views/*": [
+                "./src/external/views/*"
+            ],
+            "layout/*": [
+                "./src/external/layout/*"
+            ],
+            "public/*": [
+                "./public/*"
+            ]
+        }
+    },
+    "include": [
+        "./src/**/*",
+        "./src/**/*.ts",
+        "./src/**/*.jss",
+        "./src/**/*.tsx",
+        "./src/**/*.jsx",
+        "./public/**/*.png",
+        "./public/**/*.jpg",
+        "./public/**/*.jpeg",
+        "./public/**/*.svg",
+        "./public/**/*.gif",
+        "./public/**/*.ico"
+    ]
+    }

@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Newsreader";
+    src: url("public/fonts/Newsreader/VariableFont.ttf") format("truetype");
+}
+
+.footer{
+    margin-left: 2%;
+    margin-right: 2%;
+    font-family: "Newsreader";
+    font-weight: 500;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    margin-top: 50px;
+    margin-bottom: 0px;
+
+}
