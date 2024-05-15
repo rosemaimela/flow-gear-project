@@ -1,0 +1,26 @@
+
+const path = require('path');
+
+module.exports = function override(config, env) {
+    config.resolve = {
+        ...config.resolve,
+        alias: {
+            ...config.resolve.alias,
+            "src": path.resolve(__dirname, './src/'),
+            "internal": path.resolve(__dirname, './src/internal/'),
+            "assets": path.resolve(__dirname, './src/internal/assets/'),
+            "data": path.resolve(__dirname, './src/internal/data/'),
+            "service": path.resolve(__dirname, './src/internal/service/'),
+            "external": path.resolve(__dirname, './src/external/'),
+            "layout": path.resolve(__dirname, './src/external/layout/'),
+            "views": path.resolve(__dirname, './src/external/views/'),
+            "public": path.resolve(__dirname, './public/'),
+        },
+        extensions: [
+            '.png', '.jpg', '.jpeg', '.gif', '.svg',
+            '.ts', '.tsx', '.js', '.jsx',
+            '.json',
+            '.d.ts']
+    };
+    return config;
+};
