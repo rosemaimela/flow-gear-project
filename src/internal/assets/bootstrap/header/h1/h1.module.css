@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url("public/fonts/SourceSansPro/Variable_Font.ttf") format("truetype");
+}
+
+.h1{
+    margin: 30px 2% 20px 2%;
+    letter-spacing: 2px;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    font-size: 43px;
+    color: rgb(0, 0, 0);
+}

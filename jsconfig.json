@@ -40,11 +40,6 @@
         "./src/**/*.jss",
         "./src/**/*.tsx",
         "./src/**/*.jsx",
-        "./public/**/*.png",
-        "./public/**/*.jpg",
-        "./public/**/*.jpeg",
-        "./public/**/*.svg",
-        "./public/**/*.gif",
-        "./public/**/*.ico"
+        "./public/**/*"
     ]
     }
