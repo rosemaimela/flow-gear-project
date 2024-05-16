@@ -1,0 +1,34 @@
+.wrapper{
+    margin: 15px 20px;
+    display:flex;
+    max-width: 50dvw; /*delete me*/
+}
+
+.column{
+    flex-direction: column;
+}
+
+.column .card_image{
+    width: 100%;
+    height: auto;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.row .card_image{
+    height: auto;
+}
+
+.column .card_name{
+    margin: 18px 0 0 5px;
+}
+
+.column .card_price{
+    margin: 8px 0 0 10px;
+}
+
+.row .card_details{
+    margin-left: 20px;
+}

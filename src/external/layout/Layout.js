@@ -1,13 +1,18 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import AppFooter from 'assets/footer/footer';
-import AppHeader from 'assets/header/header';
+import AppFooter from 'assets/bootstrap/footer/footer';
+import AppHeader from 'assets/bootstrap/header/header';
 
 const Layout = () => {
   return (
     <>
-      <AppHeader title='Company name' />
-      <Outlet />
+      <AppHeader title='War Guardian Shop' />
+      <div style={{
+        minHeight: "60dvh"
+      }}>
+        <Outlet />
+
+      </div>
       <AppFooter />
     </>
   )

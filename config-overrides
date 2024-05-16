@@ -15,6 +15,7 @@ module.exports = function override(config, env) {
             "layout": path.resolve(__dirname, './src/external/layout/'),
             "views": path.resolve(__dirname, './src/external/views/'),
             "public": path.resolve(__dirname, './public/'),
+            "node_modules": path.resolve(__dirname, './node_modules/'),
         },
         extensions: [
             '.png', '.jpg', '.jpeg', '.gif', '.svg',
