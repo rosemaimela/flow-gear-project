@@ -19,8 +19,7 @@ const AppHomePage = () => {
         let url = '/tags';
 
         let request = {
-            user: 'test',
-            passwd: 'test',
+            'auth-key': process.env.REACT_APP_API_AUTH_KEY,
         };
 
         let customErrorHandlers = {
@@ -41,7 +40,7 @@ const AppHomePage = () => {
         };
 
         httpClientService
-            .get<Object, Object>(url, request, customErrorHandlers, false)
+            .get<Object, Object>(url, request, customErrorHandlers, true)
             .then((response) => {
                 console.log(`Response received: ${JSON.stringify(response)}`);
             })

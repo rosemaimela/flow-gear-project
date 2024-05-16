@@ -116,7 +116,7 @@ export class HttpClientService {
    * @param headers The request headers.
    */
   private authenticate({ headers }) {
-    (headers as any).Authorization = process.env.AUTH_KEY;
+    (headers as any).Authorization = "Key=" + process.env.REACT_APP_API_AUTH_KEY;
   }
 
   /**
@@ -137,12 +137,17 @@ export class HttpClientService {
    * Creates the headers for the request.
    * @returns The request headers.
    */
-  private createHeaders() {
+  private createHeaders(method) {
     return {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      'Timeout': process.env.REACT_APP_API_TIMEOUT
+      'Timeout': process.env.REACT_APP_API_TIMEOUT,
+      "Vary": "Accept-Encoding, Origin",
+      "Access-Control-Request-Method": method,
+      "Access-Control-Request-Headers": "content-type,x-pingother",
+      "Connection": "keep-alive",
+      "Host": process.env.REACT_APP_API_BASE_URL
     }
   }
 
@@ -184,7 +189,7 @@ export class HttpClientService {
   ): Promise<TResponse> {
     const fullUrl = this.baseUrl + endpoint;
     // build headers
-    const headers = this.createHeaders();
+    const headers = this.createHeaders("GET");
     // authenticate
     if (isPrivate) {
       this.authenticate({ headers });
@@ -194,7 +199,10 @@ export class HttpClientService {
     let request = new Request(urlWithParams, {
       headers,
       method: 'GET',
-      referrer: 'client'
+      mode: "cors",
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
+      credentials: "same-origin"
     });
 
     return this.executeMethod<TRequest, TResponse>(fetch(request), body, customErrorHandlers);
@@ -216,10 +224,8 @@ export class HttpClientService {
   ): Promise<TResponse> {
     const fullUrl = this.baseUrl + endpoint;
     // build headers
-    const headers = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
+    const headers = this.createHeaders("POST");
+
     // authenticate
     if (isPrivate) {
       this.authenticate({ headers });
@@ -249,10 +255,8 @@ export class HttpClientService {
   ): Promise<TResponse> {
     const fullUrl = this.baseUrl + endpoint;
     // build headers
-    const headers = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
+    const headers = this.createHeaders("PUT");
+
     // authenticate
     if (isPrivate) {
       this.authenticate({ headers });
@@ -281,10 +285,8 @@ export class HttpClientService {
   ): Promise<TResponse> {
     const fullUrl = this.baseUrl + endpoint;
     // build headers
-    const headers = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    }
+    const headers = this.createHeaders("DELETE");
+
     // authenticate
     if (isPrivate) {
       this.authenticate({ headers });
