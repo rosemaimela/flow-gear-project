@@ -1,0 +1,68 @@
+.main{
+    margin:0;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.h2 {
+    font-weight:  500;
+    margin-bottom: 30px;
+}
+
+.search_input{
+    min-width: 500px;
+    max-width: 50dvw;
+    width: 100%;
+}
+
+
+.add_stock{
+    margin-top: 20px;
+    display: flex;
+}
+
+.save_button{
+    margin: 0;
+    height: 100%;
+}
+
+.save_button button {
+    margin: auto 0;
+    height: 35px;
+    width: 30px;
+}
+.save_button button svg {
+    position: relative;
+    left: -12px;
+}
+
+.add_stock div {
+    margin-left: 0;
+    margin-right: 60px;
+}
+
+.import_excel_button, .download_excel_button{
+    width: 200px;
+    margin: 9px 2px 25px 2px  !important;
+}
+.import_excel_button button, .download_excel_button button{
+    background-color: #2a4252;
+    color: white;
+
+    height: 37px;
+
+    font-style: "DM Sans";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.date_range{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.date_range div {
+    margin: 0;
+    margin-right: 60px;
+}

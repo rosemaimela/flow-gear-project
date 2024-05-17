@@ -35,7 +35,6 @@ const AppSearchInput = ({
                     strokeWidth='0.5'
                 ></circle>
             </svg>
-            <i className={css.icon + ' fa-solid fa-magnifying-glass-minus'}></i>
         </div>
     );
 };

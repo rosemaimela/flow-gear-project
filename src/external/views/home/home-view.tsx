@@ -6,9 +6,9 @@ import AppProductCard from 'assets/bootstrap/product-card/product-card';
 import { HttpClientService } from 'service/http-client-service/http-client.service';
 import { HTTP_STATUS_CODE } from 'data/const/http-status-code';
 
-const httpClientService: HttpClientService = new HttpClientService();
-
 const AppHomePage = () => {
+    const httpClientService: HttpClientService = new HttpClientService();
+
     const navigate = useNavigate();
 
     // test data
