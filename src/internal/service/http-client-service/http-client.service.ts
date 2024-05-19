@@ -3,6 +3,7 @@ import { HTTP_STATUS_CODE } from 'data/const/http-status-code';
 
 export class HttpClientService {
 
+  private proxyUrl: string = process.env.REACT_APP_API_PROXY_URL;
   private baseUrl: string = process.env.REACT_APP_API_BASE_URL;
   private timeout: number = parseInt(process.env.REACT_APP_API_TIMEOUT);
 
@@ -142,12 +143,8 @@ export class HttpClientService {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      'Timeout': process.env.REACT_APP_API_TIMEOUT,
       "Vary": "Accept-Encoding, Origin",
-      "Access-Control-Request-Method": method,
-      "Access-Control-Request-Headers": "content-type,x-pingother",
       "Connection": "keep-alive",
-      "Host": process.env.REACT_APP_API_BASE_URL
     }
   }
 
@@ -187,7 +184,7 @@ export class HttpClientService {
     customErrorHandlers: object = {},
     isPrivate: boolean
   ): Promise<TResponse> {
-    const fullUrl = this.baseUrl + endpoint;
+    const fullUrl = `${this.proxyUrl}${endpoint}`;
     // build headers
     const headers = this.createHeaders("GET");
     // authenticate
@@ -195,13 +192,19 @@ export class HttpClientService {
       this.authenticate({ headers });
     }
     // build params
+
+    console.log("LOGGING REQUEST",
+      JSON.stringify({
+        fullUrl,
+        customErrorHandlers,
+        isPrivate
+      }, null, 2)
+    )
     let urlWithParams = fullUrl + this.joinQueryParams({ params: body });
     let request = new Request(urlWithParams, {
       headers,
       method: 'GET',
       mode: "cors",
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
       credentials: "same-origin"
     });
 
