@@ -16,10 +16,10 @@ const AppHomePage = () => {
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
     const onApiCall = async () => {
-        let url = '/tags';
+        let endpoint = '/tags/';
 
         let request = {
-            'auth-key': process.env.REACT_APP_API_AUTH_KEY,
+            // 'auth-key': process.env.REACT_APP_API_AUTH_KEY,
         };
 
         let customErrorHandlers = {
@@ -40,7 +40,7 @@ const AppHomePage = () => {
         };
 
         httpClientService
-            .get<Object, Object>(url, request, customErrorHandlers, true)
+            .get<Object, Object>(endpoint, request, customErrorHandlers, true)
             .then((response) => {
                 console.log(`Response received: ${JSON.stringify(response)}`);
             })
