@@ -42,3 +42,6 @@
     height: 45px;
     margin-right: -45px;
 }
+.import_excel_input{
+    display: none;
+}
