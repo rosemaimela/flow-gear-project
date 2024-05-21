@@ -1,0 +1,58 @@
+.main{
+    margin:0;
+    padding:0;
+    align-items: center;
+}
+
+.search_input{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5.5dvh !important;
+}
+
+.product_list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 57px;
+
+}
+.product_card_wrapper{
+
+    padding: 25px 2dvw 60px 2.5dvw;
+    border: solid 0.5px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    display: flex;
+}
+.product_card_wrapper:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+.product_card{
+    width: 80%;
+}
+
+.item_count{
+    margin-left: 50px;
+}
+
+.remove_button{
+
+}
+
+.add_button{
+    width: 40px;
+}
+.subtract_button{
+    width: 40px;
+}
+
+.add_or_subtract{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 0;
+    padding: 0;
+}

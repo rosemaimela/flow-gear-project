@@ -30,6 +30,12 @@
     background-repeat: no-repeat;
     background-position: right center;
     padding-right: 30px;
+
+    cursor: pointer;
+}
+
+button:hover{
+    filter: brightness(1.2);
 }
 
 .icon{

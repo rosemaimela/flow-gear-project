@@ -4,7 +4,6 @@ import SaveIcon from 'assets/images/icons/save/save';
 
 interface HeaderProps {
     icon?: string;
-    label?: string;
     placeholder?: string;
     isImport? : boolean ;
     onClick?: () => void;
