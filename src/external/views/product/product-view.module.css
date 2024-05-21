@@ -3,3 +3,32 @@
     padding:0;
     align-items: center;
 }
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 57px;
+}
+
+.product_image{
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.image_section{
+    width: 40dvw;
+}
+.description_section{
+    width: 60dvw;
+}
+
+.h2 {
+    margin-top: 60px;
+}
+
+.add_to_cart_button{
+    width: 300px;
+    margin-top: 40px;
+}

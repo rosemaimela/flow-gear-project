@@ -6,6 +6,8 @@ import NotFoundView from 'views/not-found/not-found';
 import AppHomePage from 'views/home/home-view';
 import AppProductPage from 'views/product/product-view';
 import AppManagementPage from 'views/management/management-view';
+import AppCheckoutResultPage from 'views/checkout/result/checkout-result';
+import AppCheckoutCartPage from 'views/checkout/cart/cart-view';
 
 export default function DefaultRouter() {
     return (
@@ -14,6 +16,18 @@ export default function DefaultRouter() {
                 <Route index element={<AppHomePage />} />
                 <Route path='/product' element={<AppProductPage />} />
                 <Route path='/management' element={<AppManagementPage />} />
+
+                <Route path='/checkout'>
+                    <Route index element={<AppCheckoutCartPage />} />
+                    <Route
+                        path='/checkout/proceed'
+                        element={<AppCheckoutCartPage />}
+                    />
+                    <Route
+                        path='/checkout/result'
+                        element={<AppCheckoutResultPage />}
+                    />
+                </Route>
             </Route>
 
             <Route path='*' element={<NotFoundView />} />

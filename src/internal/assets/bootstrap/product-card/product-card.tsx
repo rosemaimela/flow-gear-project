@@ -5,10 +5,18 @@ import AppH2 from '../header/h2/h2';
 interface HeaderProps {
     title: string;
     flex: 'row' | 'column';
+    onClick?: () => void;
+    isReadOnly?: boolean;
     className?: string;
 }
 
-const AppProductCard = ({ title, flex = 'column', className }: HeaderProps) => {
+const AppProductCard = ({
+    title,
+    flex = 'column',
+    onClick,
+    isReadOnly = true,
+    className,
+}: HeaderProps) => {
     const classes = ` ${className ?? ''}`;
     return (
         <div
@@ -17,6 +25,9 @@ const AppProductCard = ({ title, flex = 'column', className }: HeaderProps) => {
                 ` ${flex === 'row' ? css.row : css.column}` +
                 classes
             }
+            onClick={() => {
+                if (isReadOnly) onClick();
+            }}
         >
             <img
                 className={css.card_image}

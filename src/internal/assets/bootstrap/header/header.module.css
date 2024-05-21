@@ -2,6 +2,50 @@
     font-family: "Newsreader";
     src: url("public/fonts/Newsreader/VariableFont.ttf") format("truetype");
 }
+.home_anchor{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    position: relative;
+}
+.home_anchor_enabled:hover{
+    scale: 1.0125;
+    cursor: pointer;
+}
+.home_enchor_disabled{
+    cursor: default;
+}
+
+.home_anchor::after {
+    content: "Return to home page";
+    position: relative;
+    top: -40px;
+    left: 390px;
+    transform: translateX(-50%);
+    color: rgba(18, 18, 18, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.home_anchor_enabled::after {
+   opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+}
+
+.home_anchor_enabled:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+.home_anchor_disabled::after {
+    opacity: 0;
+     transition: opacity 0.3s ease, visibility 0.3s ease;
+     visibility: hidden;
+ }
+ 
+ .home_anchor_disabled:hover::after {
+     opacity: 0;
+     visibility: hidden;
+ }
 
 .header{
     margin: 10px 2% 40px 2%;
