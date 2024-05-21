@@ -184,7 +184,7 @@ export class HttpClientService {
     customErrorHandlers: object = {},
     isPrivate: boolean
   ): Promise<TResponse> {
-    const fullUrl = `${this.proxyUrl}${endpoint}`;
+    const fullUrl = `${this.baseUrl}${endpoint}`;
     // build headers
     const headers = this.createHeaders("GET");
     // authenticate
@@ -225,7 +225,7 @@ export class HttpClientService {
     customErrorHandlers: object = {},
     isPrivate: boolean
   ): Promise<TResponse> {
-    const fullUrl = this.baseUrl + endpoint;
+    const fullUrl = this.proxyUrl + endpoint;
     // build headers
     const headers = this.createHeaders("POST");
 
