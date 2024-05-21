@@ -9,7 +9,7 @@ import AppNumberInput from 'assets/bootstrap/input/number-input/number-input';
 import AppButton from 'assets/bootstrap/button/button';
 import SaveIcon from 'assets/images/icons/save/save';
 import { saveAs } from 'file-saver';
-import { Base64 } from 'js-base64';
+import { Base64, atob } from 'js-base64';
 import { parse } from 'uuid';
 
 
@@ -49,21 +49,17 @@ const AppManagementPage = () => {
       const responseString = JSON.stringify(response);
 
       const base64String = response ["stock_history_report"];
+      
+      base64String.toString();
       console.log("base64 :", base64String)
-
-            // Decode the Base64 string
-      //const byteCharacters = Base64.decode(base64String);
-
-      // Convert byte characters to a byte array
-      const byteNumbers = new Array(base64String.length);
-      for (let i = 0; i < base64String.length; i++) {
-        byteNumbers[i] = base64String.charCodeAt(i);
+    const byteStr = atob(base64String);
+      const arrayBuffer = new ArrayBuffer(byteStr.length);
+      const int8Array = new Uint8Array(arrayBuffer);
+      for (let i = 0; i < byteStr.length; i++) {
+          int8Array[i] = byteStr.charCodeAt(i);
       }
-      // Create a Blob from the byte array
-      const byteArray = new Uint8Array(byteNumbers);
-      const blob = new Blob([byteArray], {
-        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      });
+
+    const blob = new Blob([arrayBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
 
       // Save the Blob as an Excel file
       saveAs(blob, fileName);
